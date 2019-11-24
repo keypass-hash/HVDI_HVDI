@@ -1,0 +1,31 @@
+<form [formGroup]="RegistrationForm" (ngSubmit)="RegistrationFunction()">
+    is Form Valid : {{RegistrationForm.valid}}
+    <br><br>
+    Name:
+    <input type="text" formControlName='Name'>
+    <div *ngIf="RegistrationForm.controls.Name.errors?.required">Name is required</div>
+    <br>
+    <div *ngIf="RegistrationForm.controls.Name.errors?.minlength">Min char of 4 req</div>
+    <br>
+    <div *ngIf="RegistrationForm.controls.Name.errors?.maxlength">Max char of 8 req</div>
+    <br>
+    <br>
+    Email:
+    <input type="text" formControlName='Email'><br>
+    <div *ngIf="RegistrationForm.controls.Email.errors?.required">Email is required</div>
+    <br>
+    <div *ngIf="RegistrationForm.controls.Name.errors?.minlength">Min char of 4 req</div>
+    <br>
+    <div *ngIf="RegistrationForm.controls.Name.errors?.maxlength">Max char of 8 req</div>
+    <br>
+    <br>
+    city:<br>
+    <select type="text" formControlName="city">
+        <option *ngFor="let c of city" [value]='c'>{{c}}</option>
+    </select>
+    gender:<br>
+    male:<input type="radio" formControlName='gender' value="male"><br>
+    female:<input type="radio" formControlName='gender' value="female"><br>
+    <br>
+    <button [disabled]='RegistrationForm.invalid'>SUBMIT</button>
+</form>
